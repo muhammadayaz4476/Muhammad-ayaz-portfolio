@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { useParams } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import FadeIn from "@/components/ui/FadeIn";
+import ImageGallery from "@/components/ui/ImageGallery";
 import { ArrowLeft, CheckCircle2, Code, Cpu, Globe, Layout, Smartphone } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -15,19 +16,36 @@ const projectsData = {
         title: "Zee-Sasta-Store",
         category: "Full-Stack E-Commerce",
         description: "A robust scalable e-commerce platform built with Next.js and Strapi. Features dynamic product routing, persistent shopping cart utilizing local storage strategies, and secure JWT-based user authentication.",
-        fullDescription: "Zee-Sasta-Store is a modern e-commerce solution designed to handle high traffic and complex product data. The goal was to create a seamless shopping experience with instant page loads and real-time inventory management.",
+        fullDescription: "Zee-Sasta-Store is a modern e-commerce solution designed to handle high traffic and complex product data. The goal was to create a seamless shopping experience with instant page loads and real-time inventory management. The platform features an intuitive interface with product browsing, detailed item views with related products, advanced search capabilities, multiple payment methods, and real-time customer support via chatbot.",
         tags: ["Next.js 15", "Tailwind CSS", "Strapi CMS", "Framer Motion"],
-        image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=2664&auto=format&fit=crop",
-        challenges: [
-            "Optimizing image delivery for thousands of products.",
-            "Implementing secure stripe payment integration.",
-            "Handling state management for a persistent shopping cart without a backend database for guest users."
+        image: "/images/web images/home page.jpeg",
+        screenshots: [
+            "/images/web images/home page.jpeg",
+            "/images/web images/categories section.jpeg",
+            "/images/web images/products section.jpeg",
+            "/images/web images/detailed item & related products.jpeg",
+            "/images/web images/cart & payement methods.jpeg",
+            "/images/web images/search result.jpeg",
+            "/images/web images/for you section.jpeg",
+            "/images/web images/signup & login page.jpeg",
+            "/images/web images/real time Chatbot.jpeg"
         ],
-        stack: ["Next.js", "Strapi", "Tailwind", "PostgreSQL", "Stripe"],
+        challenges: [
+            "Optimizing image delivery for thousands of products across multiple categories.",
+            "Implementing secure Stripe payment integration with multiple payment methods.",
+            "Handling state management for a persistent shopping cart without a backend database for guest users.",
+            "Building real-time search functionality with debouncing for optimal performance."
+        ],
+        stack: ["Next.js", "Strapi", "Tailwind", "PostgreSQL", "Stripe", "Socket.io"],
         features: [
             "Real-time Inventory Sync",
             "JWT Authentication",
-            "Admin Dashboard",
+            "Advanced Search & Filters",
+            "Product Categories",
+            "Detailed Item Pages with Related Products",
+            "Shopping Cart Management",
+            "Multiple Payment Methods",
+            "Real-time Chatbot Support",
             "Order Tracking"
         ]
     },
@@ -36,12 +54,20 @@ const projectsData = {
         title: "Mobile Store App",
         category: "Cross-Platform Mobile",
         description: "High-performance Flutter application with Material Design 3.",
-        fullDescription: "A native-feel mobile application built with Flutter to provide an accessible shopping experience on Android and iOS.",
+        fullDescription: "A native-feel mobile application built with Flutter to provide an accessible shopping experience on Android and iOS. The app features a beautiful welcome screen, comprehensive product catalog, order management, and user profile sections.",
         tags: ["Flutter", "Dart", "Material Design", "BLoC"],
-        image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=2674&auto=format&fit=crop",
-        challenges: ["Efficient list rendering", "Offline mode support"],
-        stack: ["Flutter", "Dart", "Firebase"],
-        features: ["Push Notifications", "Offline Cart", "Biometric Login"]
+        image: "/images/welcome screens.png",
+        screenshots: [
+            "/images/welcome screens.png",
+            "/images/home screens.png",
+            "/images/products screen.png",
+            "/images/orders and ratings sreen.png",
+            "/images/profile and setting screens.png",
+            "/images/admin screens.png"
+        ],
+        challenges: ["Efficient list rendering for thousands of products", "Seamless image caching and offline support", "Complex navigation patterns with nested stacks"],
+        stack: ["Flutter", "Dart", "Firebase", "BLoC", "Material Design 3"],
+        features: ["Welcome Onboarding", "Product Browsing", "Order Management", "User Ratings & Reviews", "Profile Settings", "Admin Dashboard", "Push Notifications"]
     },
     "developer-portfolio": {
         title: "Developer Portfolio",
@@ -49,7 +75,7 @@ const projectsData = {
         description: "Interactive portfolio showcasing technical skills and projects.",
         fullDescription: "A premium personal website designed to impress recruiters and showcase ability to build complex UI animations.",
         tags: ["Next.js", "Framer Motion", "Tailwind"],
-        image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2655&auto=format&fit=crop",
+        image: "/images/html& css portfolio.png",
         challenges: ["Performance optimization", "Accessibility"],
         stack: ["Next.js", "React", "TypeScript"],
         features: ["Dev Mode", "Scroll Animations", "Dark Mode"]
@@ -119,6 +145,15 @@ export default function ProjectPage() {
                                 {project.fullDescription}
                             </p>
                         </FadeIn>
+
+                        {project.screenshots && project.screenshots.length > 0 && (
+                            <FadeIn delay={0.1}>
+                                <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                                    <Smartphone className="text-primary w-6 h-6" /> App Screenshots
+                                </h2>
+                                <ImageGallery images={project.screenshots} title={project.title} />
+                            </FadeIn>
+                        )}
 
                         <FadeIn delay={0.2}>
                             <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">

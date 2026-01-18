@@ -14,7 +14,7 @@ const projects = [
         category: "Full-Stack E-Commerce",
         description: "A robust scalable e-commerce platform built with Next.js and Strapi. Features dynamic product routing, persistent shopping cart utilizing local storage strategies, and secure JWT-based user authentication.",
         tags: ["Next.js 15", "Tailwind CSS", "Strapi CMS", "Framer Motion"],
-        image: "https://images.unsplash.com/photo-1557821552-17105176677c?q=80&w=2664&auto=format&fit=crop",
+        image: "/images/web images/home page.jpeg",
         metrics: {
             performance: "98/100 Lighthouse",
             users: "500+ Monthly Active",
@@ -32,7 +32,7 @@ const projects = [
         category: "Cross-Platform Mobile",
         description: "High-performance Flutter application with Material Design 3. Features complex animated product cards, custom navigation drawer, and seamless cart state management via BLoC pattern.",
         tags: ["Flutter", "Dart", "Material Design", "BLoC"],
-        image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=2674&auto=format&fit=crop",
+        image: "/images/welcome screens.png",
         metrics: {
             performance: "60 FPS Animations",
             users: "1k+ Downloads",
@@ -50,7 +50,7 @@ const projects = [
         category: "Personal Brand",
         description: "Interactive portfolio showcasing technical skills and projects. Built with a focus on buttery smooth animations, accessibility, and high performance scores.",
         tags: ["Next.js", "Framer Motion", "Tailwind", "TypeScript"],
-        image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2655&auto=format&fit=crop",
+        image: "/images/html& css portfolio.png",
         metrics: {
             performance: "100/100 SEO",
             accessibility: "WCAG 2.1 AA",
